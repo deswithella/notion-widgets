@@ -1,9 +1,9 @@
-/* Flip clock widget
-   Loads AFTER coquette-design-system.css. Uses shared tokens only,
-   no palette or font declarations belong in this file. */
-
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   background: transparent;
+  overflow: hidden;
+  width: 100%;
 }
 
 .flip-wrap {
@@ -12,8 +12,6 @@ body {
   justify-content: center;
   gap: 14px;
   width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
   flex-wrap: nowrap;
 }
 
@@ -23,7 +21,6 @@ body {
   padding: 1.3rem 1.1rem 1rem;
   text-align: center;
   flex: 1;
-  max-width: 140px;
   box-sizing: border-box;
 }
 
