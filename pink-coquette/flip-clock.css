@@ -19,7 +19,7 @@ body {
 
 .flip-card {
   background: var(--blush);
-  border-radius: 20px;
+  border-radius: var(--radius-card);
   padding: 1.3rem 1.1rem 1rem;
   text-align: center;
   flex: 1;
@@ -29,7 +29,7 @@ body {
 
 .flip-inner {
   background: var(--cream);
-  border-radius: 12px;
+  border-radius: var(--radius-control);
   padding: 0.6rem 0.3rem;
   position: relative;
 }
