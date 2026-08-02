@@ -1,0 +1,122 @@
+/* ============================================================
+   FOCUS TIMER WIDGET
+   Depends on coquette-design-system.css for tokens (colour,
+   type, radius). Load that file first.
+   ============================================================ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.timer-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.timer-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--rose);
+  margin: 0 0 16px;
+}
+
+.timer-display {
+  font-family: var(--font-body);
+  font-size: 52px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.timer-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.timer-controls label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--rose);
+}
+
+.timer-controls input[type="range"] {
+  flex: 1;
+  max-width: 320px;
+  accent-color: var(--rose);
+}
+
+.timer-controls span {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rose);
+  min-width: 20px;
+}
+
+.timer-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.timer-buttons button {
+  font-family: var(--font-body);
+  border-radius: var(--radius-control);
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+#start-btn {
+  background: var(--rose);
+  border: 1px solid var(--rose);
+  color: var(--cream);
+}
+
+#start-btn:hover,
+#start-btn:focus-visible {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+#pause-btn,
+#reset-btn {
+  background: var(--cream);
+  border: 1px solid var(--rose);
+  color: var(--rose);
+}
+
+#pause-btn:hover,
+#pause-btn:focus-visible,
+#reset-btn:hover,
+#reset-btn:focus-visible {
+  background: var(--blush);
+}
+
+.timer-status {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--rose);
+  margin: 16px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timer-buttons button {
+    transition: none;
+  }
+}
