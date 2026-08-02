@@ -1,0 +1,74 @@
+/* Flip clock widget
+   Loads AFTER coquette-design-system.css. Uses shared tokens only,
+   no palette or font declarations belong in this file. */
+
+body {
+  background: transparent;
+}
+
+.flip-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+.flip-card {
+  background: var(--blush);
+  border-radius: 20px;
+  padding: 1.3rem 1.1rem 1rem;
+  text-align: center;
+  flex: 1;
+  max-width: 140px;
+  box-sizing: border-box;
+}
+
+.flip-inner {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 0.6rem 0.3rem;
+  position: relative;
+}
+
+.flip-inner::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: var(--border);
+}
+
+.flip-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(28px, 8vw, 36px);
+  color: var(--ink);
+  position: relative;
+}
+
+.flip-label {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--burgundy);
+  letter-spacing: 0.12em;
+  margin-top: 0.6rem;
+}
+
+.flip-divider {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.flip-divider svg {
+  fill: currentColor;
+}

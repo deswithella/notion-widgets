@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flip Clock — Coquette</title>
+<link rel="stylesheet" href="coquette-design-system.css">
+<link rel="stylesheet" href="flip-clock.css">
+</head>
+<body>
+  <div class="flip-wrap">
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-value" id="flip-hour">--</div>
+      </div>
+      <div class="flip-label" id="flip-period">--</div>
+    </div>
+    <div class="flip-divider">
+      <svg viewBox="0 0 24 24" width="11" height="11" style="color:var(--rose);"><path d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2 4.5 6 4.5c2.1 0 3.6 1.1 4.5 2.4.9-1.3 2.4-2.4 4.5-2.4 4 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z"/></svg>
+      <svg viewBox="0 0 24 24" width="9" height="9" style="color:var(--burgundy);"><path d="M12 21s-7.5-4.6-10-9.2C.3 8.4 2 4.5 6 4.5c2.1 0 3.6 1.1 4.5 2.4.9-1.3 2.4-2.4 4.5-2.4 4 0 5.7 3.9 4 7.3C19.5 16.4 12 21 12 21z"/></svg>
+    </div>
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-value" id="flip-minute">--</div>
+      </div>
+      <div class="flip-label" id="flip-day">---</div>
+    </div>
+  </div>
+  <script>
+    function updateFlipClock() {
+      var now = new Date();
+      var h = now.getHours();
+      var m = now.getMinutes();
+      var period = h >= 12 ? 'PM' : 'AM';
+      var h12 = h % 12;
+      if (h12 === 0) h12 = 12;
+      var mStr = m < 10 ? '0' + m : '' + m;
+      var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+      document.getElementById('flip-hour').textContent = h12;
+      document.getElementById('flip-minute').textContent = mStr;
+      document.getElementById('flip-period').textContent = period;
+      document.getElementById('flip-day').textContent = days[now.getDay()];
+    }
+    updateFlipClock();
+    setInterval(updateFlipClock, 15000);
+  </script>
+</body>
+</html>
