@@ -20,8 +20,8 @@
   --font-body: 'Lora', serif;                  /* everything else */
 
   /* Radius, matches Figma's rounded-rectangle cards */
-  --radius-card: 24px;
-  --radius-control: 12px;
+  --radius-card: 10px;
+  --radius-control: 6px;
 }
 
 * {
