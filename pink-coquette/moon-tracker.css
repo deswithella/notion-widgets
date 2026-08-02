@@ -1,11 +1,9 @@
-/* Moon tracker widget
-   Loads AFTER coquette-design-system.css. Uses shared tokens only,
-   no palette or font declarations belong in this file. */
-
-body {
+html, body {
+  margin: 0;
+  padding: 0;
   background: transparent;
+  overflow: hidden;
   width: 100%;
-  overflow-x: hidden;
   box-sizing: border-box;
 }
 
