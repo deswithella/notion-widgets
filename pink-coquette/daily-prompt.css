@@ -1,0 +1,123 @@
+/* ============================================================
+   DAILY PROMPT WIDGET
+   Depends on coquette-design-system.css for tokens (colour,
+   type, radius). Load that file first.
+   ============================================================ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.daily-prompt-card {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.daily-prompt-header {
+  background: var(--rose);
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.daily-prompt-header span {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.daily-prompt-body {
+  padding: 20px 24px 16px;
+  text-align: center;
+}
+
+.prompt-frame {
+  position: relative;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 34px;
+  color: var(--rose);
+  opacity: 0.3;
+  position: absolute;
+  top: -6px;
+  left: -2px;
+  line-height: 1;
+}
+
+.prompt-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.prompt-text.fade {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.daily-prompt-divider {
+  margin: 0 24px;
+  border-top: 1.5px dashed var(--rose);
+  opacity: 0.5;
+}
+
+.daily-prompt-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--cream);
+  transition: background 0.15s ease;
+}
+
+.daily-prompt-footer:hover,
+.daily-prompt-footer:active {
+  background: var(--blush);
+}
+
+.daily-prompt-footer svg {
+  width: 14px;
+  height: 14px;
+  color: var(--rose);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.daily-prompt-footer.spinning svg {
+  transform: rotate(360deg);
+}
+
+.daily-prompt-footer span {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .daily-prompt-footer svg {
+    transition: none;
+  }
+}
