@@ -17,7 +17,7 @@ body {
   max-width: 600px;
   background: var(--cream);
   border: 1px solid var(--border);
-  border-radius: 4px 4px 0 0;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
   text-align: center;
   box-shadow: 0 2px 6px rgba(123, 45, 62, 0.12);
   box-sizing: border-box;
@@ -32,7 +32,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 5px;
-  border-radius: 4px 4px 0 0;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
 }
 
 .page-day-number {
