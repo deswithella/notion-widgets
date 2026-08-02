@@ -1,13 +1,9 @@
-/* ============================================================
-   DAILY PROMPT WIDGET
-   Depends on coquette-design-system.css for tokens (colour,
-   type, radius). Load that file first.
-   ============================================================ */
-
 html, body {
   margin: 0;
   padding: 0;
   background: transparent;
+  overflow: hidden;
+  width: 100%;
 }
 
 .daily-prompt-card {
