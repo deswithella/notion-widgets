@@ -1,20 +1,11 @@
-/* Tear-off calendar widget
-   Loads AFTER coquette-design-system.css. Uses shared tokens only,
-   no palette or font declarations belong in this file. */
-
 body {
   background: transparent;
 }
-
 .page-wrap {
-  display: flex;
-  justify-content: center;
   width: 100%;
 }
-
 .page-card {
   width: 100%;
-  max-width: 600px;
   background: var(--cream);
   border: 1px solid var(--border);
   border-radius: var(--radius-card) var(--radius-card) 0 0;
@@ -22,7 +13,6 @@ body {
   box-shadow: 0 2px 6px rgba(123, 45, 62, 0.12);
   box-sizing: border-box;
 }
-
 .page-month {
   background: var(--rose);
   color: var(--cream);
@@ -34,7 +24,6 @@ body {
   padding: 5px;
   border-radius: var(--radius-card) var(--radius-card) 0 0;
 }
-
 .page-day-number {
   font-family: var(--font-display);
   font-weight: 600;
@@ -44,14 +33,12 @@ body {
   padding: 0.4rem 0 0;
   line-height: 1;
 }
-
 .page-weekday {
   font-family: var(--font-body);
   font-size: 11px;
   color: var(--burgundy);
   padding-bottom: 0.5rem;
 }
-
 .page-footer {
   border-top: 1px dashed var(--border);
   padding: 0.4rem 0;
@@ -60,12 +47,10 @@ body {
   justify-content: center;
   gap: 4px;
 }
-
 .page-footer svg {
   width: 13px;
   height: 13px;
 }
-
 .page-season {
   font-family: var(--font-body);
   font-weight: 500;
