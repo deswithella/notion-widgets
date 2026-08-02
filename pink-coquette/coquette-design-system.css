@@ -9,7 +9,7 @@
 :root {
   /* Colour */
   --blush: #FBE7EC;      /* main background, base tone behind everything */
-  --cream: #FFF9F6;      /* card/panel backgrounds sat on top of blush */
+  --cream: #FEFAFB;      /* card/panel backgrounds sat on top of blush */
   --border: #F3D3DE;     /* card outlines and dividers, kept subtle */
   --burgundy: #7B2D3E;   /* contrast text/emphasis, used sparingly */
   --rose: #E7A8BC;       /* primary accent: buttons, active states, decorative detail */
@@ -20,8 +20,8 @@
   --font-body: 'Lora', serif;                  /* everything else */
 
   /* Radius, matches Figma's rounded-rectangle cards */
-  --radius-card: 10px;
-  --radius-control: 6px;
+  --radius-card: 24px;
+  --radius-control: 12px;
 }
 
 * {
