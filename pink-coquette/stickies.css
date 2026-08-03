@@ -1,0 +1,96 @@
+/* Stickies widget
+   Loads AFTER coquette-design-system.css. Uses shared tokens only,
+   no palette or font declarations belong in this file. */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow: hidden;
+  width: 100%;
+}
+
+.stickies-widget {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 20px;
+}
+
+.stickies-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.stickies-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--burgundy);
+  margin: 0;
+}
+
+.stickies-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.sticky-note {
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  padding: 16px;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(123, 45, 62, 0.08);
+  transition: transform 0.15s ease;
+}
+
+.sticky-note:hover {
+  transform: translateY(-2px);
+}
+
+.sticky-note-text {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 80px;
+  border: none;
+  background: transparent;
+  resize: vertical;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink);
+  outline: none;
+}
+
+.sticky-note-text::placeholder {
+  color: var(--burgundy);
+  opacity: 0.4;
+}
+
+.sticky-note-delete {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: var(--burgundy);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.sticky-note-delete:hover {
+  opacity: 1;
+}
