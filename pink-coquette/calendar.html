@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coquette Calendar</title>
+<link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+
+<div class="calendar-card">
+  <div class="calendar-header">
+    <span class="calendar-title" id="calendarTitle">August 2026</span>
+    <div class="calendar-nav">
+      <button id="prevMonth" aria-label="Previous month">‹</button>
+      <button id="nextMonth" aria-label="Next month">›</button>
+    </div>
+  </div>
+
+  <div class="calendar-weekdays">
+    <span data-full="Mon" data-short="M"></span>
+    <span data-full="Tue" data-short="T"></span>
+    <span data-full="Wed" data-short="W"></span>
+    <span data-full="Thu" data-short="T"></span>
+    <span data-full="Fri" data-short="F"></span>
+    <span data-full="Sat" data-short="S"></span>
+    <span data-full="Sun" data-short="S"></span>
+  </div>
+
+  <div class="calendar-grid" id="calendarGrid"></div>
+</div>
+
+<script>
+  const today = new Date();
+  let viewYear = today.getFullYear();
+  let viewMonth = today.getMonth();
+
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  const titleEl = document.getElementById('calendarTitle');
+  const gridEl = document.getElementById('calendarGrid');
+
+  function render() {
+    titleEl.textContent = `${monthNames[viewMonth]} ${viewYear}`;
+    gridEl.innerHTML = '';
+
+    const firstOfMonth = new Date(viewYear, viewMonth, 1);
+    // Monday-first index: 0 = Monday ... 6 = Sunday
+    const firstWeekday = (firstOfMonth.getDay() + 6) % 7;
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    const daysInPrevMonth = new Date(viewYear, viewMonth, 0).getDate();
+
+    const totalCells = Math.ceil((firstWeekday + daysInMonth) / 7) * 7;
+
+    for (let i = 0; i < totalCells; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'calendar-day';
+
+      const dayNumber = i - firstWeekday + 1;
+
+      if (dayNumber < 1) {
+        cell.classList.add('outside');
+        cell.textContent = daysInPrevMonth + dayNumber;
+      } else if (dayNumber > daysInMonth) {
+        cell.classList.add('outside');
+        cell.textContent = dayNumber - daysInMonth;
+      } else {
+        cell.textContent = dayNumber;
+        const isToday =
+          dayNumber === today.getDate() &&
+          viewMonth === today.getMonth() &&
+          viewYear === today.getFullYear();
+        if (isToday) {
+          cell.classList.add('today');
+        }
+      }
+
+      gridEl.appendChild(cell);
+    }
+  }
+
+  document.getElementById('prevMonth').addEventListener('click', () => {
+    viewMonth -= 1;
+    if (viewMonth < 0) {
+      viewMonth = 11;
+      viewYear -= 1;
+    }
+    render();
+  });
+
+  document.getElementById('nextMonth').addEventListener('click', () => {
+    viewMonth += 1;
+    if (viewMonth > 11) {
+      viewMonth = 0;
+      viewYear += 1;
+    }
+    render();
+  });
+
+  render();
+</script>
+
+</body>
+</html>
