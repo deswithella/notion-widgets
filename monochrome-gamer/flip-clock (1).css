@@ -1,0 +1,49 @@
+/* ============================================================
+   FLIP-CLOCK.CSS
+   Widget-specific styles. Requires globals.css to be loaded
+   first for tokens (--ink, --card, --panel, --red) and shared
+   classes (.halftone-card, .ink-panel, .ink-label, .ink-divider).
+   ============================================================ */
+
+.flip-clock-row{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  padding:20px;
+}
+
+.flip-clock-unit{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.flip-clock-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.flip-clock-panel{
+  padding:18px 30px;
+  min-width:100px;
+}
+
+.flip-clock-value{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:600;
+  font-size:46px;
+  color:var(--ink);
+  line-height:1;
+  transition:opacity 0.25s ease, transform 0.25s ease;
+}
+
+.flip-clock-value.swap{
+  opacity:0;
+  transform:translateY(-6px);
+}
+
+.flip-clock-label{
+  margin-top:10px;
+}

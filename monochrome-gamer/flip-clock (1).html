@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flip Clock</title>
+<link rel="stylesheet" href="globals.css">
+<link rel="stylesheet" href="flip-clock.css">
+</head>
+<body>
+
+<div class="widget-root">
+  <div class="flip-clock-row" id="clock"></div>
+</div>
+
+<script>
+const clockEl = document.getElementById('clock');
+
+const units = [
+  { key:'h', label:'Hours' },
+  { key:'m', label:'Minutes' }
+];
+
+const state = {};
+
+units.forEach((u, i) => {
+  const unitEl = document.createElement('div');
+  unitEl.className = 'flip-clock-unit';
+
+  const card = document.createElement('div');
+  card.className = 'halftone-card flip-clock-card';
+
+  const panel = document.createElement('div');
+  panel.className = 'ink-panel flip-clock-panel';
+
+  const val = document.createElement('span');
+  val.className = 'flip-clock-value';
+  val.textContent = '00';
+
+  panel.appendChild(val);
+  card.appendChild(panel);
+
+  const label = document.createElement('div');
+  label.className = 'ink-label flip-clock-label';
+  label.textContent = u.label;
+
+  unitEl.appendChild(card);
+  unitEl.appendChild(label);
+  clockEl.appendChild(unitEl);
+
+  if(i < units.length - 1){
+    const div = document.createElement('div');
+    div.className = 'ink-divider';
+    div.innerHTML = '<span class="mark small">&#9670;</span><span class="mark big">&#9670;</span>';
+    clockEl.appendChild(div);
+  }
+
+  state[u.key] = { val, last:'' };
+});
+
+function pad(n){ return n.toString().padStart(2,'0'); }
+
+function setVal(el, newText){
+  el.classList.add('swap');
+  setTimeout(() => {
+    el.textContent = newText;
+    el.classList.remove('swap');
+  }, 180);
+}
+
+function tick(){
+  const now = new Date();
+  const vals = { h: pad(now.getHours()), m: pad(now.getMinutes()) };
+
+  units.forEach(u => {
+    const st = state[u.key];
+    const newVal = vals[u.key];
+    if(st.last !== newVal){
+      setVal(st.val, newVal);
+      st.last = newVal;
+    }
+  });
+}
+
+(function init(){
+  const now = new Date();
+  const vals = { h: pad(now.getHours()), m: pad(now.getMinutes()) };
+  units.forEach(u => {
+    const st = state[u.key];
+    st.val.textContent = vals[u.key];
+    st.last = vals[u.key];
+  });
+})();
+
+setInterval(tick, 1000);
+</script>
+
+</body>
+</html>
