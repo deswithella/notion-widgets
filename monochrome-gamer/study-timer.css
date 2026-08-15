@@ -1,0 +1,123 @@
+/* ============================================================
+   STUDY-TIMER.CSS
+   Widget-specific styles. Requires globals.css to be loaded
+   first for tokens (--ink, --card, --panel, --grey) and shared
+   classes (.halftone-card, .ink-panel, .ink-label).
+   Structure ported from the Coquette focus-timer widget,
+   restyled monochrome.
+   ============================================================ */
+
+.timer-card{
+  text-align:center;
+  padding:22px 24px;
+}
+
+.timer-title{
+  font-family:var(--font-jetbrains);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--ink);
+  margin:0 0 18px;
+}
+
+.timer-display-panel{
+  padding:clamp(14px, 3vw, 22px) clamp(16px, 4vw, 32px);
+  margin-bottom:18px;
+}
+
+.timer-display{
+  font-family:var(--font-jetbrains);
+  font-weight:700;
+  font-size:clamp(32px, 8vw, 56px);
+  color:var(--ink);
+  letter-spacing:1px;
+  line-height:1;
+}
+
+.timer-controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.timer-controls label{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+
+.timer-controls input[type="range"]{
+  flex:1;
+  accent-color:var(--ink);
+}
+
+.timer-controls span{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:700;
+  color:var(--ink);
+  min-width:22px;
+}
+
+.timer-buttons{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+}
+
+.timer-buttons button{
+  font-family:var(--font-mono);
+  font-weight:500;
+  border-radius:var(--radius-panel);
+  padding:8px 20px;
+  font-size:13px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  cursor:pointer;
+  transition:background 0.15s ease, color 0.15s ease;
+}
+
+#start-btn{
+  background:var(--ink);
+  border:2px solid var(--ink);
+  color:var(--paper);
+}
+
+#start-btn:hover,
+#start-btn:focus-visible{
+  background:var(--grey);
+  border-color:var(--grey);
+}
+
+#pause-btn,
+#reset-btn{
+  background:var(--panel);
+  border:2px solid var(--ink);
+  color:var(--ink);
+}
+
+#pause-btn:hover,
+#pause-btn:focus-visible,
+#reset-btn:hover,
+#reset-btn:focus-visible{
+  background:var(--card);
+}
+
+.timer-status{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--grey);
+  margin:16px 0 0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .timer-buttons button{
+    transition:none;
+  }
+}
