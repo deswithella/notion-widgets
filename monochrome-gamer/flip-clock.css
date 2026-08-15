@@ -8,32 +8,37 @@
 .flip-clock-row{
   display:flex;
   align-items:center;
-  gap:26px;
-  padding:20px;
+  width:100%;
+  gap:clamp(16px, 4vw, 40px);
+  padding:clamp(12px, 3vw, 28px);
+  box-sizing:border-box;
 }
 
 .flip-clock-unit{
   display:flex;
   flex-direction:column;
   align-items:center;
+  flex:1;
+  min-width:0;
 }
 
 .flip-clock-card{
   display:flex;
   flex-direction:column;
   align-items:center;
+  width:100%;
 }
 
 .flip-clock-panel{
-  padding:18px 30px;
-  min-width:100px;
+  padding:clamp(12px, 3vw, 22px) clamp(16px, 4vw, 32px);
+  width:100%;
 }
 
 .flip-clock-value{
   font-family:var(--font-display);
   font-style:italic;
   font-weight:600;
-  font-size:46px;
+  font-size:clamp(28px, 8vw, 64px);
   color:var(--ink);
   line-height:1;
   transition:opacity 0.25s ease, transform 0.25s ease;
@@ -46,4 +51,13 @@
 
 .flip-clock-label{
   margin-top:10px;
+  font-size:clamp(10px, 1.4vw, 13px);
+}
+
+.ink-divider .mark.small{
+  font-size:clamp(9px, 1.2vw, 12px);
+  opacity:0.6;
+}
+.ink-divider .mark.big{
+  font-size:clamp(12px, 1.8vw, 18px);
 }
