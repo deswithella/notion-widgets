@@ -1,7 +1,7 @@
 /* ============================================================
    FLIP-CLOCK.CSS
    Widget-specific styles. Requires globals.css to be loaded
-   first for tokens (--ink, --card, --panel, --red) and shared
+   first for tokens (--ink, --card, --panel, --grey) and shared
    classes (.halftone-card, .ink-panel, .ink-label, .ink-divider).
    ============================================================ */
 
@@ -35,9 +35,9 @@
 }
 
 .flip-clock-value{
-  font-family:var(--font-display);
-  font-style:italic;
-  font-weight:600;
+  font-family:var(--font-jetbrains);
+  font-weight:700;
+  font-style:normal;
   font-size:clamp(28px, 8vw, 64px);
   color:var(--ink);
   line-height:1;
